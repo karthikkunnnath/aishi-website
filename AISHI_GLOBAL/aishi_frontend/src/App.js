@@ -1,14 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import DoorColorVisualizer from './components/DoorColorVisualizer';
 import AboutSection from './components/AboutSection';
 import Hero from './components/Hero';
 import Gallery from './components/Gallery';
-import IoTDashboard from './components/IoTDashboard';
-import TankComparison from './components/TankComparison';
-import ProductEnquiryForm from './components/ProductEnquiryForm';
-import DoorTechnicalSpecs from './components/DoorTechnicalSpecs';
-import ProductCatalog from './components/ProductCatalog';
 import EngineeringHero from './components/EngineeringHero';
 import EngineeringGallery from './components/EngineeringGallery';
 import EngineeringForm from './components/EngineeringForm';
@@ -25,10 +18,6 @@ function Home() {
       <EngineeringHero />
 
       <EngineeringGallery />
-
-      {/* ⚠️ Enable these one by one later if needed */}
-
-      {/* <IoTDashboard /> */}
 
       { <EngineeringForm /> }
 
