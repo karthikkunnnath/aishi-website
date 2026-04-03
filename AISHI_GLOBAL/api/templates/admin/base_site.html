@@ -1,0 +1,30 @@
+{% extends "admin/base.html" %}
+
+{% block extrastyle %}
+<style type="text/css">
+    /* Header Background */
+    #header {
+        background: #0f172a !important; /* Dark Slate */
+        color: #fff;
+        border-bottom: 4px solid #ea580c; /* AISHI Orange */
+    }
+
+    /* Branding Text */
+    #branding h1 {
+        color: #ea580c !important;
+        font-weight: bold;
+    }
+
+    /* Buttons */
+    .button, .submit-row input, .default {
+        background: #ea580c !important;
+        border-radius: 4px !important;
+    }
+
+    /* Module Headers */
+    #content-main .module th,
+    #content-main .module h2 {
+        background: #1e293b !important;
+    }
+</style>
+{% endblock %}
