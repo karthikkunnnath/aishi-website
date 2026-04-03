@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 
 const products = [
   { id: 'HMD-01', name: 'Hollow Metal Fire Door', category: 'Doors', specs: '2-Hour Fire Rated' },
