@@ -11,8 +11,8 @@ const ProductEnquiryForm = () => {
           <div>
             <label className="block text-sm font-bold text-slate-700 mb-2">Select Product Category</label>
             <select className="w-full p-3 border rounded-md bg-white">
-              <option>Hollow Metal Doors (iClean Std)</option>
-              <option>SS Water Tanks (Swedenox Std)</option>
+              <option>Hollow Metal Doors</option>
+              <option>SS Water Tanks</option>
               <option>Modular Partitions & Ceilings</option>
               <option>Stainless Steel Furniture</option>
             </select>
