@@ -26,7 +26,7 @@ const AboutSection = () => {
           <h3 className="text-xl font-bold mb-4">Our Core Pillars</h3>
           <ul className="space-y-4 text-sm text-slate-300">
             <li>• <strong>Engineering:</strong> Cleanrooms, IoT, and Advanced Fire Protection.</li>
-            <li>• <strong>Products:</strong> iClean-standard Doors & Swedenox-standard SS Tanks.</li>
+            <li>• <strong>Products:</strong> ISO-standard Hollow Metal Doors, Modular partitions and Cealings.</li>
             <li>• <strong>Compliance:</strong> Strict adherence to NFPA, NBC, and ISO 14644.</li>
             <li>• <strong>Future Wing:</strong> Strategic expansion into Financial Audit & IT Consultancy.</li>
           </ul>
