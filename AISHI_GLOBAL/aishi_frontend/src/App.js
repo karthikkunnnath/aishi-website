@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import AboutSection from './components/AboutSection';
 import Hero from './components/Hero';
 import Gallery from './components/Gallery';
@@ -29,7 +29,7 @@ function Home() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
 
         {/* Homepage */}
@@ -39,7 +39,7 @@ function App() {
         <Route path="/service/:name" element={<ServicePage />} />
 
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
