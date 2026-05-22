@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import PremiumGlobeLogo from "./PremiumGlobeLogo";
 
 const slides = [
   {
@@ -42,7 +43,18 @@ const slides = [
 
 const Hero = () => {
   const [active, setActive] = useState(0);
+  const [showContact, setShowContact] = useState(false);
+
   const navigate = useNavigate();
+
+  // AUTO SLIDE
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActive((prev) => (prev + 1) % slides.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const next = () => {
     setActive((prev) => (prev + 1) % slides.length);
@@ -88,17 +100,23 @@ const Hero = () => {
             {current.desc}
           </p>
 
+          {/* BUTTONS */}
           <div className="flex gap-4 flex-wrap">
+
             <button
               onClick={() => navigate(`/service/${current.slug}`)}
-              className="bg-sky-500 hover:bg-sky-600 px-6 py-3 rounded-md"
+              className="bg-sky-500 hover:bg-sky-600 px-6 py-3 rounded-md transition duration-300 shadow-lg"
             >
               Explore
             </button>
 
-            <button className="border border-white px-6 py-3 rounded-md hover:bg-white hover:text-black transition">
+            <button
+              onClick={() => setShowContact(true)}
+              className="border border-white/60 backdrop-blur-md bg-white/10 px-6 py-3 rounded-md hover:bg-white hover:text-black transition duration-300"
+            >
               Contact
             </button>
+
           </div>
         </div>
 
@@ -136,6 +154,7 @@ const Hero = () => {
                   alt=""
                 />
 
+                {/* LABEL */}
                 <div className="absolute bottom-4 left-4 text-white text-sm font-semibold">
                   {slide.title}
                 </div>
@@ -146,7 +165,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* NAV */}
+      {/* NAVIGATION */}
       <div className="absolute bottom-10 right-10 flex items-center gap-4 text-white z-30">
 
         <button
@@ -167,6 +186,120 @@ const Hero = () => {
           {String(active + 1).padStart(2, "0")}
         </span>
       </div>
+
+      {/* PREMIUM CONTACT POPUP */}
+      {showContact && (
+
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-6"
+          onClick={() => setShowContact(false)}
+        >
+
+          {/* CARD */}
+          <div
+            className="relative w-full max-w-md rounded-3xl border border-white/20 bg-white/10 backdrop-blur-2xl p-8 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+
+            {/* CLOSE */}
+            <button
+              onClick={() => setShowContact(false)}
+              className="absolute top-4 right-4 text-white text-2xl hover:text-sky-400 transition"
+            >
+              ×
+            </button>
+
+            {/* SMALL TITLE */}
+            <p className="text-sky-400 tracking-[0.3em] text-xs uppercase mb-3">
+              AISHI GLOBAL
+            </p>
+
+            {/* MAIN TITLE */}
+            <h2 className="text-3xl font-bold text-white mb-3">
+              Contact Us
+            </h2>
+
+            <p className="text-gray-300 mb-8">
+              Connect with our engineering and consulting team.
+            </p>
+
+            {/* CONTACT ITEMS */}
+            <div className="space-y-5">
+
+              {/* MOBILE */}
+              <a
+                href="tel:+919876543210"
+                className="flex items-center justify-between bg-white/5 hover:bg-white/10 transition rounded-2xl px-5 py-4 border border-white/10"
+              >
+                <div>
+                  <p className="text-gray-400 text-sm">
+                    Mobile
+                  </p>
+
+                  <p className="text-white font-semibold">
+                    +91 6238560225
+                  </p>
+                </div>
+
+                <div className="text-sky-400 text-xl">
+                  ↗
+                </div>
+              </a>
+
+              {/* LANDLINE */}
+              <a
+                href="tel:+914844000000"
+                className="flex items-center justify-between bg-white/5 hover:bg-white/10 transition rounded-2xl px-5 py-4 border border-white/10"
+              >
+                <div>
+                  <p className="text-gray-400 text-sm">
+                    Landline
+                  </p>
+
+                  <p className="text-white font-semibold">
+                    +91 495 3150116
+                  </p>
+                </div>
+
+                <div className="text-sky-400 text-xl">
+                  ↗
+                </div>
+              </a>
+
+              {/* EMAIL */}
+              <a
+                href="mailto:info@aishiglobal.co"
+                className="flex items-center justify-between bg-white/5 hover:bg-white/10 transition rounded-2xl px-5 py-4 border border-white/10"
+              >
+                <div>
+                  <p className="text-gray-400 text-sm">
+                    Email
+                  </p>
+
+                  <p className="text-white font-semibold">
+                    mail@aishiglobal.co
+                  </p>
+                </div>
+
+                <div className="text-sky-400 text-xl">
+                  ↗
+                </div>
+              </a>
+
+            </div>
+
+            {/* ENQUIRY BUTTON */}
+            <button
+              className="w-full mt-8 bg-sky-500 hover:bg-sky-600 transition rounded-2xl py-4 text-white font-semibold shadow-lg"
+            >
+              Send Enquiry
+            </button>
+
+          </div>
+
+        </div>
+
+      )}
 
     </section>
   );
