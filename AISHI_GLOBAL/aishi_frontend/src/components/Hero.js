@@ -90,7 +90,7 @@ const Hero = () => {
       <div className="relative z-20 h-full flex items-center justify-between px-6 md:px-16 gap-10 pt-40">
 
         {/* LEFT TEXT */}
-        <div className="w-full md:w-[40%] text-white">
+        <div className="w-full md:w-[40%] text-white ">
 
           <h2 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
             {current.title}
